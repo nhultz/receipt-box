@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -46,7 +47,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func setupAppShell() {
         window = UIWindow(frame: UIScreen.main.bounds)
 
-        let vc = ViewController()
+        let vc = MainViewController()
 
         window?.rootViewController = vc
         window?.makeKeyAndVisible()

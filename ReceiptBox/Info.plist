@@ -24,6 +24,10 @@
 	<true/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Allow the use of the camera to capture images</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Allow access to the Photo Album</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
