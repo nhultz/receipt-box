@@ -5,6 +5,10 @@ target 'ReceiptBox' do
   use_frameworks!
 
   # Pods for ReceiptBox
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'GoogleSignIn'
   pod 'SnapKit', '~> 4.0.0'
 
 end

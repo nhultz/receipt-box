@@ -84,11 +84,11 @@ extension MainViewController: UIImagePickerControllerDelegate, UINavigationContr
             case .authorized:
                 showCameraPicker()
             case .denied:
-                showPromptForCameraSettings()
+                showAlertForCameraSettings()
             case .notDetermined:
-                showPromptToPrimeForAccess()
+                showAlertToPrimeForAccess()
             default:
-                showPromptToPrimeForAccess()
+                showAlertToPrimeForAccess()
             }
         } else {
             let alertController = UIAlertController(title: "Error", message: "Device has no camera", preferredStyle: .alert)
@@ -101,22 +101,18 @@ extension MainViewController: UIImagePickerControllerDelegate, UINavigationContr
     func showCameraPicker() {
         let imagePicker = UIImagePickerController()
         imagePicker.sourceType = .camera
-        imagePicker.allowsEditing = true
         imagePicker.delegate = self
         present(imagePicker, animated: true, completion: nil)
     }
 
-    func showPromptToPrimeForAccess() {
+    func showAlertToPrimeForAccess() {
         let alertController = UIAlertController(title: "ReceiptBox Would Like To Access The Camera", message: "Please grant permission to use the Camera so that you can record receipts.", preferredStyle: .alert)
         let allowAction = UIAlertAction(title: "Allow", style: .default) { _ in
-            let session = AVCaptureDevice.DiscoverySession.init(deviceTypes: [.builtInWideAngleCamera], mediaType: .video, position: .back)
-            if session.devices.count > 0 {
-                AVCaptureDevice.requestAccess(for: .video, completionHandler: { [weak self] _ in
-                    DispatchQueue.main.async {
-                        self?.launchCamera()
-                    }
-                })
-            }
+            AVCaptureDevice.requestAccess(for: .video, completionHandler: { [weak self] _ in
+                DispatchQueue.main.async {
+                    self?.launchCamera()
+                }
+            })
         }
         alertController.addAction(allowAction)
 
@@ -126,7 +122,7 @@ extension MainViewController: UIImagePickerControllerDelegate, UINavigationContr
         present(alertController, animated: true, completion: nil)
     }
 
-    func showPromptForCameraSettings() {
+    func showAlertForCameraSettings() {
         let alertController = UIAlertController(title: "ReceiptBox Would Like To Access The Camera", message: "Please grant permission to use the Camera so that you can record receipts.", preferredStyle: .alert)
         let action = UIAlertAction(title: "Open Settings", style: .cancel) { _ in
             UIApplication.shared.open(URL(string: UIApplicationOpenSettingsURLString)!, options: [:], completionHandler: nil)

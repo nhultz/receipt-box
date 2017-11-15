@@ -33,14 +33,13 @@ class AppPhotoAlbum {
 
                 let request = PHAssetChangeRequest.creationRequestForAsset(from: image)
                 guard
-                    let placeholder = request.placeholderForCreatedAsset,
+                    let createdAsset = request.placeholderForCreatedAsset,
                     let albumChangeRequest = PHAssetCollectionChangeRequest(for: assetCollection)
                 else {
                     return
                 }
 
-                let enumeration: NSArray = [placeholder]
-                albumChangeRequest.addAssets(enumeration)
+                albumChangeRequest.addAssets([createdAsset] as NSArray)
 
             }, completionHandler: nil)
         }

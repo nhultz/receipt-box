@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01220D851FB801530000ACBC /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01220D841FB801530000ACBC /* SignInViewController.swift */; };
 		01C13EFE1FB7A78400418D71 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C13EFD1FB7A78400418D71 /* MainViewController.swift */; };
 		01C13F001FB7A99C00418D71 /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C13EFF1FB7A99C00418D71 /* Stylesheet.swift */; };
 		01C13F031FB7AA8F00418D71 /* UIColor+HexInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C13F021FB7AA8F00418D71 /* UIColor+HexInit.swift */; };
 		01C13F071FB7D88D00418D71 /* AppPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C13F061FB7D88D00418D71 /* AppPhotoAlbum.swift */; };
+		01C13F0A1FB7FE1200418D71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01C13F091FB7FE1200418D71 /* GoogleService-Info.plist */; };
 		01C319A31FB7A147002DC194 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C319A21FB7A147002DC194 /* AppDelegate.swift */; };
 		01C319AA1FB7A147002DC194 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01C319A91FB7A147002DC194 /* Assets.xcassets */; };
 		01C319AD1FB7A147002DC194 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C319AB1FB7A147002DC194 /* LaunchScreen.storyboard */; };
@@ -18,10 +20,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01220D841FB801530000ACBC /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		01C13EFD1FB7A78400418D71 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		01C13EFF1FB7A99C00418D71 /* Stylesheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylesheet.swift; sourceTree = "<group>"; };
 		01C13F021FB7AA8F00418D71 /* UIColor+HexInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexInit.swift"; sourceTree = "<group>"; };
 		01C13F061FB7D88D00418D71 /* AppPhotoAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPhotoAlbum.swift; sourceTree = "<group>"; };
+		01C13F091FB7FE1200418D71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01C3199F1FB7A147002DC194 /* ReceiptBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReceiptBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01C319A21FB7A147002DC194 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01C319A91FB7A147002DC194 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,6 +73,15 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		01C13F081FB7FDFF00418D71 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				01C13F091FB7FE1200418D71 /* GoogleService-Info.plist */,
+				01C319AE1FB7A147002DC194 /* Info.plist */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		01C319961FB7A147002DC194 = {
 			isa = PBXGroup;
 			children = (
@@ -90,12 +103,13 @@
 		01C319A11FB7A147002DC194 /* ReceiptBox */ = {
 			isa = PBXGroup;
 			children = (
+				01C13F081FB7FDFF00418D71 /* Config */,
 				01C13F041FB7D81800418D71 /* Shared */,
 				01C319A21FB7A147002DC194 /* AppDelegate.swift */,
 				01C13EFF1FB7A99C00418D71 /* Stylesheet.swift */,
+				01220D841FB801530000ACBC /* SignInViewController.swift */,
 				01C13EFD1FB7A78400418D71 /* MainViewController.swift */,
 				01C319AB1FB7A147002DC194 /* LaunchScreen.storyboard */,
-				01C319AE1FB7A147002DC194 /* Info.plist */,
 				01C319A91FB7A147002DC194 /* Assets.xcassets */,
 				01C319A01FB7A147002DC194 /* Products */,
 			);
@@ -183,6 +197,7 @@
 			files = (
 				01C319AD1FB7A147002DC194 /* LaunchScreen.storyboard in Resources */,
 				01C319AA1FB7A147002DC194 /* Assets.xcassets in Resources */,
+				01C13F0A1FB7FE1200418D71 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,11 +211,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-ReceiptBox/Pods-ReceiptBox-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -231,9 +254,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ReceiptBox/Pods-ReceiptBox-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -249,6 +275,7 @@
 			files = (
 				01C13F071FB7D88D00418D71 /* AppPhotoAlbum.swift in Sources */,
 				01C13EFE1FB7A78400418D71 /* MainViewController.swift in Sources */,
+				01220D851FB801530000ACBC /* SignInViewController.swift in Sources */,
 				01C319A31FB7A147002DC194 /* AppDelegate.swift in Sources */,
 				01C13F001FB7A99C00418D71 /* Stylesheet.swift in Sources */,
 				01C13F031FB7AA8F00418D71 /* UIColor+HexInit.swift in Sources */,
@@ -384,7 +411,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 23Y856282N;
-				INFOPLIST_FILE = ReceiptBox/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ReceiptBox/Config/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.nhultz.ReceiptBox;
@@ -403,7 +430,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 23Y856282N;
-				INFOPLIST_FILE = ReceiptBox/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/ReceiptBox/Config/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.github.nhultz.ReceiptBox;
