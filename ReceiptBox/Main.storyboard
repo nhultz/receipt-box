@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ScP-jP-Cc3">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Avenir.ttc">
+            <string>Avenir-Book</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Sign In View Controller-->
+        <scene sceneID="7ci-1k-l2Z">
+            <objects>
+                <viewController id="ScP-jP-Cc3" customClass="SignInViewController" customModule="ReceiptBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xhb-ck-2aq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Receipt Box" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ChG-SM-aPz">
+                                <rect key="frame" x="107.5" y="120" width="161" height="41"/>
+                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qI7-lM-LKY" customClass="GIDSignInButton">
+                                <rect key="frame" x="137" y="318" width="100" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="Xnu-Ou-iST"/>
+                                    <constraint firstAttribute="height" constant="30" id="oul-Yp-615"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.56470588235294117" green="0.77254901960784317" blue="0.49803921568627452" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ChG-SM-aPz" firstAttribute="top" secondItem="Zdl-9J-UZ2" secondAttribute="top" constant="100" id="BKX-7m-oew"/>
+                            <constraint firstItem="ChG-SM-aPz" firstAttribute="centerX" secondItem="xhb-ck-2aq" secondAttribute="centerX" id="Cwh-At-3kj"/>
+                            <constraint firstItem="qI7-lM-LKY" firstAttribute="centerY" secondItem="xhb-ck-2aq" secondAttribute="centerY" id="H1l-gT-eAR"/>
+                            <constraint firstItem="qI7-lM-LKY" firstAttribute="centerX" secondItem="xhb-ck-2aq" secondAttribute="centerX" id="ZZ2-ut-QvR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Zdl-9J-UZ2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fpL-BH-xb8"/>
+                    <connections>
+                        <segue destination="B32-z7-ast" kind="show" identifier="ToReceiptList" id="yYT-H6-BlZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i6W-pG-dEj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-246" y="-116"/>
+        </scene>
+        <!--Receipts-->
+        <scene sceneID="Y3g-2s-Gs9">
+            <objects>
+                <viewController title="Receipts" id="EBC-Vm-ltW" customClass="ReceiptListViewController" customModule="ReceiptBox" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="duh-aW-AHU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="snN-nb-r1u">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReceiptCell" id="wYF-fQ-OoF" customClass="ReceiptCell" customModule="ReceiptBox" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="60"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wYF-fQ-OoF" id="tBx-Aj-p7D">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Starbucks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ceh-jr-ev8">
+                                                    <rect key="frame" x="20" y="6" width="275" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="22" id="jRw-wv-txx"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3/15" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w9u-18-imc">
+                                                    <rect key="frame" x="295" y="6" width="60" height="22"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="jMg-rK-fTV"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$7.50" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pum-Ms-Jcv">
+                                                    <rect key="frame" x="20" y="34" width="275" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="pum-Ms-Jcv" firstAttribute="top" secondItem="Ceh-jr-ev8" secondAttribute="bottom" constant="6" id="0LN-Tr-WUe"/>
+                                                <constraint firstItem="pum-Ms-Jcv" firstAttribute="width" secondItem="Ceh-jr-ev8" secondAttribute="width" id="5H9-BD-xGU"/>
+                                                <constraint firstItem="w9u-18-imc" firstAttribute="leading" secondItem="Ceh-jr-ev8" secondAttribute="trailing" id="5Zf-fi-nIy"/>
+                                                <constraint firstItem="pum-Ms-Jcv" firstAttribute="bottom" secondItem="tBx-Aj-p7D" secondAttribute="bottomMargin" id="7QV-tC-pRe"/>
+                                                <constraint firstAttribute="trailing" secondItem="w9u-18-imc" secondAttribute="trailing" constant="20" id="9rm-AC-OfM"/>
+                                                <constraint firstItem="pum-Ms-Jcv" firstAttribute="leading" secondItem="Ceh-jr-ev8" secondAttribute="leading" id="RuG-og-3xi"/>
+                                                <constraint firstItem="Ceh-jr-ev8" firstAttribute="top" secondItem="tBx-Aj-p7D" secondAttribute="top" constant="6" id="XJP-iw-Ial"/>
+                                                <constraint firstItem="Ceh-jr-ev8" firstAttribute="leading" secondItem="tBx-Aj-p7D" secondAttribute="leading" constant="20" id="bWi-Ao-ngT"/>
+                                                <constraint firstItem="w9u-18-imc" firstAttribute="height" secondItem="Ceh-jr-ev8" secondAttribute="height" id="cmN-w1-71v"/>
+                                                <constraint firstItem="w9u-18-imc" firstAttribute="top" secondItem="tBx-Aj-p7D" secondAttribute="top" constant="6" id="jZL-av-Ehh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="amountLabel" destination="pum-Ms-Jcv" id="eE3-7v-Ybs"/>
+                                            <outlet property="dateLabel" destination="w9u-18-imc" id="Fcv-Uw-7hv"/>
+                                            <outlet property="nameLabel" destination="Ceh-jr-ev8" id="p1T-ys-Xfg"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="snN-nb-r1u" firstAttribute="leading" secondItem="VEU-Xo-VV2" secondAttribute="leading" id="alw-Df-bmY"/>
+                            <constraint firstItem="VEU-Xo-VV2" firstAttribute="bottom" secondItem="snN-nb-r1u" secondAttribute="bottom" id="evk-z7-cUY"/>
+                            <constraint firstItem="VEU-Xo-VV2" firstAttribute="trailing" secondItem="snN-nb-r1u" secondAttribute="trailing" id="frh-R4-CeV"/>
+                            <constraint firstItem="snN-nb-r1u" firstAttribute="top" secondItem="VEU-Xo-VV2" secondAttribute="top" id="ltt-qp-jLc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VEU-Xo-VV2"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Receipts" id="aUu-Yd-clJ"/>
+                    <connections>
+                        <outlet property="receiptTableView" destination="snN-nb-r1u" id="xNo-XP-cbW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uZy-0b-yu5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1664.8" y="-116.49175412293854"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Ahb-9S-Z2e">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B32-z7-ast" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ARB-Yb-VPB">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="EBC-Vm-ltW" kind="relationship" relationship="rootViewController" id="Gik-Pi-2se"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="spk-aJ-9jf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="729" y="-116"/>
+        </scene>
+    </scenes>
+</document>

@@ -9,7 +9,6 @@
 import UIKit
 import Firebase
 import GoogleSignIn
-import SnapKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
@@ -43,10 +42,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
         setupFirebase()
 
-        setupAppShell()
         return true
     }
 
@@ -70,15 +67,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-    func setupAppShell() {
-        window = UIWindow(frame: UIScreen.main.bounds)
-
-        let vc = SignInViewController()
-
-        window?.rootViewController = vc
-        window?.makeKeyAndVisible()
     }
 
     func setupFirebase() {

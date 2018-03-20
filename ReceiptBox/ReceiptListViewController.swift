@@ -9,69 +9,32 @@
 import UIKit
 import AVFoundation
 
-class MainViewController: UIViewController {
+
+class ReceiptListViewController: UIViewController {
+
+    fileprivate let viewModel = ReceiptViewModel()
+
+    @IBOutlet weak var receiptTableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        initialViewSetup()
+        receiptTableView.dataSource = viewModel
     }
-
-    // MARK: Setup Functions
-
-    func initialViewSetup() {
-        view.backgroundColor = .white
-
-        view.addSubview(titleLabel)
-        titleLabel.snp.makeConstraints { (make) in
-            make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview().dividedBy(3)
-        }
-
-        view.addSubview(launchCameraButton)
-        launchCameraButton.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
-            make.width.equalToSuperview().dividedBy(2)
-            make.height.equalToSuperview().dividedBy(10)
-        }
-    }
-
-    // MARK: Event Handlers
-    @objc func handleLaunchCameraButtonTapped() {
-        launchCamera()
-    }
-
-    // MARK: View Definitions
-
-    let titleLabel: UILabel = {
-        let label = UILabel()
-        label.text = "ReceiptBox"
-        label.textAlignment = .center
-        label.font = UIFont(name: Stylesheet.Fonts.avenirMedium, size: 26)
-        return label
-    }()
-
-    let launchCameraButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Open Camera", for: .normal)
-        button.titleLabel?.font = UIFont(name: Stylesheet.Fonts.avenirMedium, size: 16)
-        button.backgroundColor = Stylesheet.Colors.green
-
-        button.addTarget(self, action: #selector(handleLaunchCameraButtonTapped), for: .touchUpInside)
-        return button
-    }()
 
 }
 
-extension MainViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension ReceiptListViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerEditedImage] as! UIImage
-        AppPhotoAlbum.shared.save(image)
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        AppPhotoAlbum.shared.save(image) { (localDeviceId) in
+            print(localDeviceId ?? "No ID Returned")
+        }
 
         dismiss(animated: true, completion: nil)
     }

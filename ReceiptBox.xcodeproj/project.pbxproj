@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01218246205AD0DD00B6D31C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01218245205AD0DD00B6D31C /* Main.storyboard */; };
 		01220D851FB801530000ACBC /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01220D841FB801530000ACBC /* SignInViewController.swift */; };
-		01C13EFE1FB7A78400418D71 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C13EFD1FB7A78400418D71 /* MainViewController.swift */; };
-		01C13F001FB7A99C00418D71 /* Stylesheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C13EFF1FB7A99C00418D71 /* Stylesheet.swift */; };
-		01C13F031FB7AA8F00418D71 /* UIColor+HexInit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C13F021FB7AA8F00418D71 /* UIColor+HexInit.swift */; };
+		0199CD2A205F506A0035CC6C /* Receipt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199CD29205F506A0035CC6C /* Receipt.swift */; };
+		0199CD2C205F55720035CC6C /* ReceiptViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199CD2B205F55720035CC6C /* ReceiptViewModel.swift */; };
+		0199CD2E206017330035CC6C /* ReceiptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199CD2D206017330035CC6C /* ReceiptCell.swift */; };
+		01C13EFE1FB7A78400418D71 /* ReceiptListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C13EFD1FB7A78400418D71 /* ReceiptListViewController.swift */; };
 		01C13F071FB7D88D00418D71 /* AppPhotoAlbum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C13F061FB7D88D00418D71 /* AppPhotoAlbum.swift */; };
 		01C13F0A1FB7FE1200418D71 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 01C13F091FB7FE1200418D71 /* GoogleService-Info.plist */; };
 		01C319A31FB7A147002DC194 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C319A21FB7A147002DC194 /* AppDelegate.swift */; };
@@ -20,10 +22,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		01218245205AD0DD00B6D31C /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		01220D841FB801530000ACBC /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		01C13EFD1FB7A78400418D71 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		01C13EFF1FB7A99C00418D71 /* Stylesheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stylesheet.swift; sourceTree = "<group>"; };
-		01C13F021FB7AA8F00418D71 /* UIColor+HexInit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HexInit.swift"; sourceTree = "<group>"; };
+		0199CD29205F506A0035CC6C /* Receipt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Receipt.swift; sourceTree = "<group>"; };
+		0199CD2B205F55720035CC6C /* ReceiptViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptViewModel.swift; sourceTree = "<group>"; };
+		0199CD2D206017330035CC6C /* ReceiptCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptCell.swift; sourceTree = "<group>"; };
+		01C13EFD1FB7A78400418D71 /* ReceiptListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiptListViewController.swift; sourceTree = "<group>"; };
 		01C13F061FB7D88D00418D71 /* AppPhotoAlbum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPhotoAlbum.swift; sourceTree = "<group>"; };
 		01C13F091FB7FE1200418D71 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		01C3199F1FB7A147002DC194 /* ReceiptBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReceiptBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,29 +52,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		01C13F011FB7AA8100418D71 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				01C13F021FB7AA8F00418D71 /* UIColor+HexInit.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		01C13F041FB7D81800418D71 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				01C13F051FB7D87600418D71 /* Services */,
-				01C13F011FB7AA8100418D71 /* Extensions */,
-			);
-			path = Shared;
-			sourceTree = "<group>";
-		};
-		01C13F051FB7D87600418D71 /* Services */ = {
+		0199CD27205F50490035CC6C /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				01C13F061FB7D88D00418D71 /* AppPhotoAlbum.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		0199CD28205F505D0035CC6C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0199CD29205F506A0035CC6C /* Receipt.swift */,
+				0199CD2B205F55720035CC6C /* ReceiptViewModel.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		01C13F081FB7FDFF00418D71 /* Config */ = {
@@ -103,12 +99,14 @@
 		01C319A11FB7A147002DC194 /* ReceiptBox */ = {
 			isa = PBXGroup;
 			children = (
+				0199CD28205F505D0035CC6C /* Models */,
+				0199CD27205F50490035CC6C /* Services */,
 				01C13F081FB7FDFF00418D71 /* Config */,
-				01C13F041FB7D81800418D71 /* Shared */,
+				01218245205AD0DD00B6D31C /* Main.storyboard */,
 				01C319A21FB7A147002DC194 /* AppDelegate.swift */,
-				01C13EFF1FB7A99C00418D71 /* Stylesheet.swift */,
 				01220D841FB801530000ACBC /* SignInViewController.swift */,
-				01C13EFD1FB7A78400418D71 /* MainViewController.swift */,
+				01C13EFD1FB7A78400418D71 /* ReceiptListViewController.swift */,
+				0199CD2D206017330035CC6C /* ReceiptCell.swift */,
 				01C319AB1FB7A147002DC194 /* LaunchScreen.storyboard */,
 				01C319A91FB7A147002DC194 /* Assets.xcassets */,
 				01C319A01FB7A147002DC194 /* Products */,
@@ -198,6 +196,7 @@
 				01C319AD1FB7A147002DC194 /* LaunchScreen.storyboard in Resources */,
 				01C319AA1FB7A147002DC194 /* Assets.xcassets in Resources */,
 				01C13F0A1FB7FE1200418D71 /* GoogleService-Info.plist in Resources */,
+				01218246205AD0DD00B6D31C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,7 +213,8 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -223,7 +223,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -261,7 +262,7 @@
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -275,12 +276,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0199CD2A205F506A0035CC6C /* Receipt.swift in Sources */,
 				01C13F071FB7D88D00418D71 /* AppPhotoAlbum.swift in Sources */,
-				01C13EFE1FB7A78400418D71 /* MainViewController.swift in Sources */,
+				01C13EFE1FB7A78400418D71 /* ReceiptListViewController.swift in Sources */,
 				01220D851FB801530000ACBC /* SignInViewController.swift in Sources */,
 				01C319A31FB7A147002DC194 /* AppDelegate.swift in Sources */,
-				01C13F001FB7A99C00418D71 /* Stylesheet.swift in Sources */,
-				01C13F031FB7AA8F00418D71 /* UIColor+HexInit.swift in Sources */,
+				0199CD2E206017330035CC6C /* ReceiptCell.swift in Sources */,
+				0199CD2C205F55720035CC6C /* ReceiptViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

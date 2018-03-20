@@ -11,17 +11,15 @@ import Firebase
 import GoogleSignIn
 
 class SignInViewController: UIViewController, GIDSignInUIDelegate {
-    
+
     var handle: AuthStateDidChangeListenerHandle?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = Stylesheet.Colors.green
-        
+        navigationController?.isToolbarHidden = true
+
         GIDSignIn.sharedInstance().uiDelegate = self
         GIDSignIn.sharedInstance().signInSilently()
-        
-        setupViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -29,8 +27,7 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
         
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
             if user != nil {
-                let vc = MainViewController()
-                self.present(vc, animated: true, completion: nil)
+                self.performSegue(withIdentifier: "ToReceiptList", sender: self)
             }
         })
     }
@@ -42,16 +39,4 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
             Auth.auth().removeStateDidChangeListener(handle)
         }
     }
-    
-    func setupViews() {
-        view.addSubview(signInButton)
-        signInButton.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
-        }
-    }
-    
-    // MARK: View Definitions
-    
-    let signInButton = GIDSignInButton()
-
 }
