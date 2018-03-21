@@ -12,10 +12,13 @@ import UIKit
 protocol ReceiptViewModelItem {
     var sectionTitle: String { get }
     var rowCount: Int { get }
+    var isCollapsed: Bool { get set }
 }
 
 class ReceiptViewModel: NSObject {
     var monthGroups = [ReceiptViewModelItem]()
+
+    var reloadSections: ((_ section: Int) -> Void)?
 
     override init() {
         super.init()
@@ -27,6 +30,8 @@ class ReceiptViewModel: NSObject {
             Receipt(name: "Starbucks", date: Date(), totalAmount: 10.15)
         ]
 
+        monthGroups.append(MonthGroupItem(month: "January 2018", receipts: receipts))
+        monthGroups.append(MonthGroupItem(month: "February 2018", receipts: receipts))
         monthGroups.append(MonthGroupItem(month: "March 2018", receipts: receipts))
     }
 
@@ -38,7 +43,13 @@ extension ReceiptViewModel: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return monthGroups[section].rowCount
+        let group = monthGroups[section]
+
+        if group.isCollapsed {
+            return 0
+        } else {
+            return group.rowCount
+        }
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,7 +66,34 @@ extension ReceiptViewModel: UITableViewDataSource {
     }
 }
 
+extension ReceiptViewModel: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: HeaderView.identifier) as? HeaderView {
+            headerView.group = monthGroups[section]
+            headerView.section = section
+            headerView.delegate = self
+            return headerView
+        }
+        return UIView()
+    }
+}
+
+extension ReceiptViewModel: HeaderViewDelegate {
+    func toggleSection(header: HeaderView, section: Int) {
+        var group = monthGroups[section]
+
+        let collapsed = !group.isCollapsed
+        group.isCollapsed = collapsed
+        header.setCollasped(collapsed: collapsed)
+
+        // Adjust the number of the rows inside the section
+        reloadSections?(section)
+    }
+}
+
 class MonthGroupItem: ReceiptViewModelItem {
+    var isCollapsed = false
+
     var sectionTitle: String {
         return month
     }

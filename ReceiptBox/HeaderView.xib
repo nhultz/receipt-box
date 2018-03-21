@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HeaderView" customModule="ReceiptBox" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OSN-dX-Gv9">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Header" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfj-F1-EX6">
+                            <rect key="frame" x="20" y="13.5" width="69.5" height="24"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEd-uy-wko">
+                            <rect key="frame" x="329" y="12" width="26" height="26"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="26" id="1Xu-CF-1J9"/>
+                                <constraint firstAttribute="height" constant="26" id="BOc-lX-AmV"/>
+                            </constraints>
+                            <state key="normal" image="down-arrow"/>
+                            <connections>
+                                <action selector="didTapHeader:" destination="iN0-l3-epB" eventType="touchUpInside" id="t22-1Q-VOj"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="Zfj-F1-EX6" firstAttribute="centerY" secondItem="OSN-dX-Gv9" secondAttribute="centerY" id="DOd-fI-U4X"/>
+                        <constraint firstItem="Zfj-F1-EX6" firstAttribute="leading" secondItem="OSN-dX-Gv9" secondAttribute="leading" constant="20" id="jBL-sw-m8A"/>
+                        <constraint firstAttribute="trailing" secondItem="ZEd-uy-wko" secondAttribute="trailing" constant="20" id="nV6-ZT-jSG"/>
+                        <constraint firstItem="ZEd-uy-wko" firstAttribute="centerY" secondItem="OSN-dX-Gv9" secondAttribute="centerY" id="qa5-cK-8fd"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="OSN-dX-Gv9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="8cv-iX-0qJ"/>
+                <constraint firstItem="OSN-dX-Gv9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Odz-gB-gVN"/>
+                <constraint firstAttribute="trailing" secondItem="OSN-dX-Gv9" secondAttribute="trailing" id="TLe-Zt-9r7"/>
+                <constraint firstAttribute="bottom" secondItem="OSN-dX-Gv9" secondAttribute="bottom" id="WIH-Gb-16k"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="arrowButton" destination="ZEd-uy-wko" id="0IE-Eh-DNl"/>
+                <outlet property="titleLabel" destination="Zfj-F1-EX6" id="x3e-Gb-b2m"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="down-arrow" width="32" height="32"/>
+    </resources>
+</document>

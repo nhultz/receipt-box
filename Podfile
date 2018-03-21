@@ -7,7 +7,7 @@ target 'ReceiptBox' do
   # Pods for ReceiptBox
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
-  pod 'Firebase/Database'
+  pod 'Firebase/Firestore'
   pod 'GoogleSignIn'
 
   pod 'RxSwift', '~> 4.0'

@@ -12,14 +12,22 @@ import AVFoundation
 
 class ReceiptListViewController: UIViewController {
 
-    fileprivate let viewModel = ReceiptViewModel()
-
+    @IBOutlet weak var viewModel: ReceiptViewModel!
     @IBOutlet weak var receiptTableView: UITableView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        viewModel.reloadSections = { [weak self] (section: Int) in
+            self?.receiptTableView.beginUpdates()
+            self?.receiptTableView.reloadSections([section], with: .fade)
+            self?.receiptTableView.endUpdates()
+        }
+
         receiptTableView.dataSource = viewModel
+        receiptTableView.delegate = viewModel
+
+        receiptTableView.register(HeaderView.nib, forHeaderFooterViewReuseIdentifier: HeaderView.identifier)
     }
 
 }

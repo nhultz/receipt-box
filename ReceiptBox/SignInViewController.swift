@@ -26,8 +26,8 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
         super.viewWillAppear(animated)
         
         handle = Auth.auth().addStateDidChangeListener({ (auth, user) in
-            if user != nil {
-                self.performSegue(withIdentifier: "ToReceiptList", sender: self)
+            if let user = user {
+                self.checkUserStatus(user: user)
             }
         })
     }
@@ -37,6 +37,23 @@ class SignInViewController: UIViewController, GIDSignInUIDelegate {
         
         if let handle = handle {
             Auth.auth().removeStateDidChangeListener(handle)
+        }
+    }
+
+    func checkUserStatus(user: User) {
+        let db = Firestore.firestore()
+        let userRef = db.collection("users").document(user.uid)
+
+        userRef.getDocument { (document, error) in
+            if document?.data() != nil {
+                self.performSegue(withIdentifier: "ToMainFromSignIn", sender: self)
+            } else {
+                userRef.setData([
+                    "name": user.displayName ?? "N/A",
+                    "email": user.email ?? "N/A"
+                ])
+                self.performSegue(withIdentifier: "ToMainFromSignIn", sender: self)
+            }
         }
     }
 }
