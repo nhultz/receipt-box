@@ -39,6 +39,11 @@ class HeaderView: UITableViewHeaderFooterView {
         return String(describing: self)
     }
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(didTapHeader)))
+    }
+
     @IBAction func didTapHeader(_ sender: UIButton) {
         delegate?.toggleSection(header: self, section: section)
     }
